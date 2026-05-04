@@ -1,0 +1,13 @@
+@if (loading$ | async) {
+  <div>Loading...</div>
+}
+
+@if (error$ | async) {
+  <div>Error:{{ error$ | async }}</div>
+}
+
+<ul>
+  @for (user of users$ | async; track $index) {
+    <li>{{ user.name }}</li>
+  }
+</ul>
